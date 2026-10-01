@@ -1,9 +1,8 @@
-name: Build e otimização
+name: Build, otimização e deploy
 
 on:
   push:
     branches:
-      - feature/minificacao
       - main
 
   pull_request:
@@ -11,6 +10,15 @@ on:
       - main
 
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -27,18 +35,36 @@ jobs:
         with:
           node-version: 22
 
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Instalar dependências
         run: npm install
 
       - name: Gerar build otimizada
         run: npm run build
 
-      - name: Exibir relatório
+      - name: Exibir relatório de otimização
         run: cat dist/build-report.txt
 
-      - name: Enviar build como artefato
-        uses: actions/upload-artifact@v4
+      - name: Preparar artefato do GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: instituto-conecta-dist
-          path: dist/
-          retention-days: 30
+          path: dist
+
+  deploy:
+    name: Publicar no GitHub Pages
+
+    if: github.event_name != 'pull_request'
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Publicar build otimizada
+        id: deployment
+        uses: actions/deploy-pages@v4
