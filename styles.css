@@ -1,0 +1,1040 @@
+/* =========================================================
+   INSTITUTO CONECTA
+   ========================================================= */
+/* =========================================================
+   1. DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+    /* Paleta de cores */
+    --cor-primaria: #0b5366;
+    --cor-primaria-escura: #063b49;
+    --cor-primaria-clara: #2f7585;
+
+    --cor-secundaria: #78a22f;
+    --cor-secundaria-clara: #a8c96a;
+
+    --cor-destaque: #f3a712;
+
+    --cor-fundo: #f4f7f8;
+    --cor-superficie: #ffffff;
+    --cor-texto: #263238;
+    --cor-texto-suave: #607d8b;
+    --cor-borda: #d8e1e5;
+
+    --cor-sucesso: #2e7d32;
+    --cor-erro: #c62828;
+
+    /* Tipografia */
+    --fonte-principal: Arial, Helvetica, sans-serif;
+
+    --fonte-h1: 2.5rem;
+    --fonte-h2: 2rem;
+    --fonte-h3: 1.4rem;
+    --fonte-corpo: 1rem;
+    --fonte-pequena: 0.875rem;
+
+    /* Espaçamento modular */
+    --espaco-1: 0.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 1.5rem;
+    --espaco-4: 2rem;
+    --espaco-5: 3rem;
+    --espaco-6: 4rem;
+
+    /* Outros padrões */
+    --raio-pequeno: 6px;
+    --raio: 12px;
+    --raio-grande: 18px;
+
+    --sombra:
+        0 4px 16px rgba(0, 0, 0, 0.10);
+
+    --sombra-hover:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-corpo);
+    line-height: 1.6;
+
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   3. ACESSIBILIDADE
+   ========================================================= */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--espaco-2);
+
+    z-index: 9999;
+
+    padding: 0.75rem 1rem;
+
+    color: #ffffff;
+    background-color: var(--cor-primaria);
+
+    border-radius: var(--raio-pequeno);
+}
+
+.skip-link:focus {
+    top: var(--espaco-2);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   4. CABEÇALHO
+   ========================================================= */
+
+body > header {
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: var(--espaco-4);
+
+    padding: var(--espaco-2) 7%;
+
+    background-color: rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+body > header > a {
+    color: var(--cor-primaria);
+
+    font-size: 1.45rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   5. NAVEGAÇÃO - FLEXBOX
+   ========================================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+
+    gap: var(--espaco-1);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav a {
+    display: block;
+
+    padding: 0.65rem 0.9rem;
+
+    color: var(--cor-texto);
+
+    font-weight: 600;
+
+    border-radius: var(--raio-pequeno);
+
+    transition:
+        color var(--transicao),
+        background-color var(--transicao),
+        transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--cor-primaria);
+    background-color: rgba(11, 83, 102, 0.08);
+}
+
+nav a:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   6. CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+main {
+    width: min(100%, 1320px);
+
+    margin: 0 auto;
+}
+
+main > section {
+    margin: var(--espaco-3) 4%;
+    padding: var(--espaco-5);
+
+    background-color: var(--cor-superficie);
+
+    border-radius: var(--raio-grande);
+}
+
+main > section:first-of-type {
+    margin-top: var(--espaco-4);
+}
+
+
+/* Cadastro possui h1 e p diretamente dentro do main */
+
+main > h1,
+main > p {
+    width: 92%;
+    max-width: 1000px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main > h1 {
+    margin-top: var(--espaco-5);
+}
+
+
+/* =========================================================
+   7. TIPOGRAFIA
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    margin-top: 0;
+
+    color: var(--cor-primaria-escura);
+
+    font-size: var(--fonte-h1);
+}
+
+h2 {
+    color: var(--cor-primaria);
+
+    font-size: var(--fonte-h2);
+}
+
+h3 {
+    color: var(--cor-texto);
+
+    font-size: var(--fonte-h3);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--espaco-2);
+}
+
+figcaption {
+    margin-top: var(--espaco-1);
+
+    color: var(--cor-texto-suave);
+
+    font-size: var(--fonte-pequena);
+    text-align: center;
+}
+
+
+/* =========================================================
+   8. BANNER DA PÁGINA INICIAL
+   ========================================================= */
+
+main > section:first-of-type > picture img {
+    width: 100%;
+
+    max-height: 520px;
+
+    margin: var(--espaco-3) 0;
+
+    object-fit: cover;
+
+    border-radius: var(--raio);
+}
+
+
+/* =========================================================
+   9. GRID DE 12 COLUNAS
+   Aplicado apenas às sections que contêm articles
+   ========================================================= */
+
+main section:has(> article) {
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, minmax(0, 1fr));
+
+    gap: var(--espaco-3);
+}
+
+main section:has(> article) > h2 {
+    grid-column: 1 / -1;
+}
+
+main section:has(> article) > article {
+    grid-column: span 4;
+}
+
+
+/* =========================================================
+   10. CARDS DOS PROJETOS
+   Usa diretamente a tag article existente
+   ========================================================= */
+
+article {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--espaco-3);
+
+    background-color: var(--cor-superficie);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transicao),
+        box-shadow var(--transicao),
+        border-color var(--transicao);
+}
+
+article:hover,
+article:focus-within {
+    transform: translateY(-5px);
+
+    border-color: var(--cor-secundaria);
+
+    box-shadow: var(--sombra-hover);
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   11. IMAGENS DOS PROJETOS
+   ========================================================= */
+
+article figure {
+    margin: 0 0 var(--espaco-2);
+}
+
+article picture {
+    display: block;
+
+    overflow: hidden;
+
+    border-radius: var(--raio);
+}
+
+article img {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+article:hover img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   12. LINKS DE AÇÃO DAS SEÇÕES
+   ========================================================= */
+
+main > section > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: var(--espaco-1);
+
+    padding: 0.8rem 1.3rem;
+
+    color: #ffffff;
+    background-color: var(--cor-primaria);
+
+    font-weight: 700;
+
+    border-radius: var(--raio);
+
+    transition:
+        background-color var(--transicao),
+        transform 0.2s ease,
+        box-shadow var(--transicao);
+}
+
+main > section > a:hover {
+    background-color: var(--cor-primaria-escura);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra);
+}
+
+main > section > a:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   13. LISTA DE VOLUNTARIADO
+   ========================================================= */
+
+main section ul {
+    padding-left: 1.5rem;
+}
+
+main section li {
+    margin-bottom: var(--espaco-1);
+}
+
+main section li::marker {
+    color: var(--cor-secundaria);
+}
+
+
+/* =========================================================
+   14. CONTATO / ADDRESS
+   ========================================================= */
+
+address {
+    padding: var(--espaco-3);
+
+    background-color: var(--cor-fundo);
+
+    border-left:
+        5px solid var(--cor-secundaria);
+
+    border-radius: var(--raio);
+
+    font-style: normal;
+}
+
+address p:last-child {
+    margin-bottom: 0;
+}
+
+address a {
+    color: var(--cor-primaria);
+
+    font-weight: 700;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   15. FORMULÁRIO
+   ========================================================= */
+
+#formCadastro {
+    width: 92%;
+    max-width: 900px;
+
+    margin: var(--espaco-4) auto var(--espaco-6);
+
+    padding: var(--espaco-4);
+
+    background-color: var(--cor-superficie);
+
+    border-radius: var(--raio-grande);
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =========================================================
+   16. FIELDSET
+   Grid aplicado diretamente à estrutura existente
+   ========================================================= */
+
+#formCadastro fieldset {
+    display: grid;
+
+    grid-template-columns:
+        minmax(160px, 0.45fr)
+        minmax(0, 1.55fr);
+
+    align-items: center;
+
+    gap: var(--espaco-2) var(--espaco-3);
+
+    margin: 0 0 var(--espaco-4);
+
+    padding: var(--espaco-3);
+
+    border:
+        1px solid var(--cor-borda);
+
+    border-radius: var(--raio);
+}
+
+#formCadastro legend {
+    padding: 0 var(--espaco-1);
+
+    color: var(--cor-primaria);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#formCadastro label {
+    color: var(--cor-texto);
+
+    font-weight: 600;
+}
+
+
+/* Checkbox já está dentro de um label */
+
+#formCadastro fieldset >
+label:has(input[type="checkbox"]) {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--espaco-1);
+
+    padding-top: var(--espaco-1);
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   17. CAMPOS DO FORMULÁRIO
+   ========================================================= */
+
+#formCadastro input,
+#formCadastro select,
+#formCadastro textarea {
+    width: 100%;
+
+    padding: 0.8rem 0.9rem;
+
+    color: var(--cor-texto);
+    background-color: #ffffff;
+
+    border:
+        2px solid var(--cor-borda);
+
+    border-radius: var(--raio-pequeno);
+
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        background-color var(--transicao);
+}
+
+#formCadastro textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+#formCadastro input::placeholder,
+#formCadastro textarea::placeholder {
+    color: #90a4ae;
+}
+
+
+/* =========================================================
+   18. CHECKBOX
+   ========================================================= */
+
+#formCadastro input[type="checkbox"] {
+    width: auto;
+
+    margin: 0;
+
+    accent-color: var(--cor-primaria);
+}
+
+
+/* =========================================================
+   19. FOCO
+   ========================================================= */
+
+#formCadastro input:focus,
+#formCadastro select:focus,
+#formCadastro textarea:focus {
+    outline: none;
+
+    border-color: var(--cor-primaria);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(11, 83, 102, 0.14);
+}
+
+
+/* =========================================================
+   20. VALIDAÇÃO VISUAL
+   ========================================================= */
+
+#formCadastro input:user-valid,
+#formCadastro select:user-valid,
+#formCadastro textarea:user-valid {
+    border-color: var(--cor-sucesso);
+}
+
+#formCadastro input:user-invalid,
+#formCadastro select:user-invalid,
+#formCadastro textarea:user-invalid {
+    border-color: var(--cor-erro);
+
+    background-color: #fffafa;
+}
+
+#formCadastro input:disabled,
+#formCadastro select:disabled,
+#formCadastro textarea:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.6;
+
+    background-color: #eceff1;
+}
+
+
+/* =========================================================
+   21. BOTÃO ENVIAR
+   ========================================================= */
+
+#formCadastro button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+
+    padding: 0.9rem 1.5rem;
+
+    color: #ffffff;
+    background-color: var(--cor-primaria);
+
+    font-weight: 700;
+
+    border: none;
+    border-radius: var(--raio);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        transform 0.2s ease,
+        box-shadow var(--transicao),
+        opacity var(--transicao);
+}
+
+#formCadastro button[type="submit"]:hover {
+    background-color:
+        var(--cor-primaria-escura);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra);
+}
+
+#formCadastro button[type="submit"]:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+#formCadastro button[type="submit"]:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.55;
+
+    background-color:
+        var(--cor-texto-suave);
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   22. RODAPÉ
+   ========================================================= */
+
+footer {
+    margin-top: var(--espaco-5);
+
+    padding: var(--espaco-4) 7%;
+
+    color: #ffffff;
+    background-color:
+        var(--cor-primaria-escura);
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   23. BREAKPOINT 1 - 1440px
+   Desktop panorâmico
+   ========================================================= */
+
+@media (max-width: 1440px) {
+
+    main {
+        max-width: 1200px;
+    }
+
+}
+
+
+/* =========================================================
+   24. BREAKPOINT 2 - 1200px
+   Desktop / notebook
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    main > section {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    main section:has(> article) {
+        gap: var(--espaco-2);
+    }
+
+}
+
+
+/* =========================================================
+   25. BREAKPOINT 3 - 992px
+   Tablets grandes
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    :root {
+        --fonte-h1: 2.2rem;
+        --fonte-h2: 1.8rem;
+    }
+
+    main section:has(> article) > article {
+        grid-column: span 6;
+    }
+
+    main > section {
+        padding: var(--espaco-4);
+    }
+
+}
+
+
+/* =========================================================
+   26. BREAKPOINT 4 - 768px
+   Tablets / celulares
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    :root {
+        --fonte-h1: 2rem;
+        --fonte-h2: 1.6rem;
+        --fonte-h3: 1.3rem;
+    }
+
+
+    /* Cabeçalho */
+
+    body > header {
+        position: static;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: var(--espaco-1);
+
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    /* Menu */
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+    }
+
+    nav a {
+        width: 100%;
+
+        border-bottom:
+            1px solid var(--cor-borda);
+    }
+
+
+    /* Grid dos projetos */
+
+    main section:has(> article) >
+    article {
+        grid-column: span 12;
+    }
+
+
+    /* Seções */
+
+    main > section {
+        margin-left: 2%;
+        margin-right: 2%;
+
+        padding: var(--espaco-3);
+    }
+
+
+    /* Formulário */
+
+    #formCadastro {
+        width: 96%;
+
+        padding: var(--espaco-3);
+    }
+
+    #formCadastro fieldset {
+        grid-template-columns: 1fr;
+
+        align-items: stretch;
+    }
+
+    #formCadastro fieldset >
+    label:has(input[type="checkbox"]) {
+        grid-column: 1;
+    }
+
+}
+
+
+/* =========================================================
+   27. BREAKPOINT 5 - 576px
+   Celulares pequenos
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    :root {
+        --fonte-h1: 1.8rem;
+        --fonte-h2: 1.45rem;
+        --fonte-h3: 1.2rem;
+    }
+
+    body > header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    main > section {
+        margin:
+            var(--espaco-2) 0;
+
+        padding:
+            var(--espaco-3) 4%;
+
+        border-radius: 0;
+    }
+
+    main > section:first-of-type {
+        margin-top: 0;
+    }
+
+    article {
+        padding: var(--espaco-2);
+    }
+
+    #formCadastro {
+        width: 100%;
+
+        margin-bottom: 0;
+
+        padding:
+            var(--espaco-3) 4%;
+
+        border-radius: 0;
+    }
+
+    #formCadastro fieldset {
+        padding: var(--espaco-2);
+    }
+
+    #formCadastro
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    footer {
+        margin-top: 0;
+
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+}
+
+
+/* =========================================================
+   28. ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+/* Componentes de feedback: prévias da atividade, somente HTML e CSS. */
+.badge {
+  display: inline-block; align-self: flex-start;
+  padding: .35rem .7rem; margin-bottom: 1rem;
+  border-radius: 999px; font-size: .8rem; font-weight: 700;
+}
+.badge-alimentacao { background: #fff3d6; color: #765000; }
+.badge-educacao { background: #e0f0f4; color: #063b49; }
+.badge-animais { background: #e8f5d7; color: #395315; }
+.alerta { display: none; padding: 1rem 1.2rem; margin-bottom: 1.5rem;
+  border-left: 5px solid; border-radius: var(--raio); scroll-margin-top: 110px; }
+.alerta:target { display: block; }
+.alerta p { margin: .4rem 0; }
+.alerta-sucesso { background: #e8f5e9; color: #1b5e20; border-color: #2e7d32; }
+.alerta-erro { background: #ffebee; color: #b71c1c; border-color: #c62828; }
+.acoes-previa { display: flex; flex-wrap: wrap; gap: .75rem; }
+.acoes-previa a, .botao-feedback {
+  display: inline-block; background: var(--cor-primaria); color: white;
+  padding: .8rem 1.2rem; border-radius: var(--raio); font-weight: 700;
+}
+.acoes-previa a:hover, .botao-feedback:hover { background: var(--cor-primaria-escura); }
+.demonstracao { scroll-margin-top: 110px; }
+.modal { display: none; position: fixed; inset: 0; z-index: 2000;
+  place-items: center; background: rgba(0, 0, 0, .55); padding: 1.5rem; }
+.modal:target { display: grid; }
+.modal-conteudo { width: min(100%, 500px); padding: 2rem;
+  background: white; border-radius: var(--raio); box-shadow: var(--sombra); }
+.modal-conteudo h2 { margin-top: .4rem; }
+.nota-previa { color: var(--cor-texto-suave); font-size: .875rem; }
+.toast { display: none; position: fixed; right: 1.5rem; bottom: 1.5rem;
+  z-index: 2000; max-width: min(360px, calc(100vw - 3rem)); padding: 1.4rem;
+  background: var(--cor-primaria); color: white; border-radius: var(--raio);
+  box-shadow: var(--sombra-hover); border-left: 5px solid var(--cor-secundaria-clara); }
+.toast:target { display: block; }
+.toast p { margin: .5rem 0; }
+.toast a { text-decoration: underline; font-weight: bold; font-size: .875rem; }
+
+/* Organização das páginas: introdução integrada aos projetos. */
+.lista-projetos > h1, .lista-projetos > p { grid-column: 1 / -1; }
+.lista-projetos > h1 { margin-bottom: 0; }
+article[id] { scroll-margin-top: 110px; }
+article h4 { margin: .5rem 0; color: var(--cor-primaria); }
+.link-projeto { align-self: flex-start; margin-top: auto; padding-top: .75rem;
+  color: var(--cor-primaria); font-weight: 700; text-decoration: underline; }
+nav a[aria-current="page"] { color: var(--cor-primaria); background: #e0f0f4; }
+.link-componentes { display: inline-block; margin-top: .75rem; text-decoration: underline; }
+.aviso-cadastro { color: var(--cor-texto-suave); }
+@media (max-width: 768px) { article[id] { scroll-margin-top: 1rem; } }
+.lista-projetos article h2 { margin-top: 0; font-size: var(--fonte-h3); color: var(--cor-texto); }
+.lista-projetos article h3 { margin: .5rem 0; font-size: 1rem; color: var(--cor-primaria); }

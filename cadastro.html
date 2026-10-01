@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Cadastre-se como voluntário do Instituto Conecta."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Seja Voluntário | Instituto Conecta</title>
+  </head>
+
+  <body>
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+    <header>
+      <a href="index.html">Instituto Conecta</a>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li>
+            <a href="cadastro.html" aria-current="page">Seja voluntário</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <h1>Cadastro de voluntário</h1>
+
+      <p>
+        Preencha o formulário abaixo para participar das iniciativas do
+        Instituto Conecta.
+      </p>
+
+      <p id="aviso-cadastro" class="aviso-cadastro">
+        Formulário demonstrativo. O envio de cadastro ainda não está disponível.
+      </p>
+      <form id="formCadastro" aria-describedby="aviso-cadastro">
+        <fieldset>
+          <legend>Dados pessoais</legend>
+
+          <label for="nome">Nome completo</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            minlength="3"
+            autocomplete="name"
+            required
+          />
+
+          <label for="nascimento">Data de nascimento</label>
+          <input type="date" id="nascimento" name="nascimento" required />
+
+          <label for="cpf">CPF</label>
+          <input
+            type="text"
+            id="cpf"
+            name="cpf"
+            inputmode="numeric"
+            maxlength="14"
+            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+            placeholder="000.000.000-00"
+            required
+          />
+
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
+
+          <label for="telefone">Telefone</label>
+          <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            inputmode="numeric"
+            maxlength="15"
+            pattern="\(\d{2}\) \d{5}-\d{4}"
+            placeholder="(00) 00000-0000"
+            autocomplete="tel"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço</legend>
+
+          <label for="cep">CEP</label>
+          <input
+            type="text"
+            id="cep"
+            name="cep"
+            inputmode="numeric"
+            maxlength="9"
+            pattern="\d{5}-\d{3}"
+            placeholder="00000-000"
+            required
+          />
+
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" name="endereco" required />
+
+          <label for="numero">Número</label>
+          <input type="text" id="numero" name="numero" required />
+
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" name="bairro" required />
+
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" required />
+
+          <label for="estado">Estado</label>
+          <select id="estado" name="estado" required>
+            <option value="">Selecione</option>
+            <option value="PR">Paraná</option>
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Voluntariado</legend>
+
+          <label for="area">Área de interesse</label>
+
+          <select id="area" name="area" required>
+            <option value="">Selecione</option>
+            <option value="educacao">Educação</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="animais">Proteção animal</option>
+            <option value="administrativo">Apoio administrativo</option>
+          </select>
+
+          <label for="mensagem">Conte um pouco sobre você</label>
+
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="5"
+            maxlength="500"
+          ></textarea>
+
+          <label>
+            <input type="checkbox" name="termos" required />
+            Concordo com o tratamento dos meus dados para fins de cadastro.
+          </label>
+        </fieldset>
+
+        <button type="submit" disabled>Enviar cadastro</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Instituto Conecta. Todos os direitos reservados.</p>
+      <a class="link-componentes" href="componentes.html"
+        >Demonstração de componentes</a
+      >
+    </footer>
+  </body>
+</html>

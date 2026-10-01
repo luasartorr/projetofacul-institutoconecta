@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Demonstração dos componentes visuais do Instituto Conecta."
+    />
+    <link rel="stylesheet" href="styles.css">
+    <title>Componentes | Instituto Conecta</title>
+  </head>
+
+  <body>
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+    <header>
+      <a href="index.html">Instituto Conecta</a>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Seja voluntário</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section id="demonstracao" class="demonstracao">
+        <h1>Demonstração de componentes</h1>
+        <p>
+          Exemplos visuais de feedback desenvolvidos com HTML e CSS para a
+          atividade.
+        </p>
+        <p>Use os links para exibir cada estado sem enviar dados.</p>
+        <div class="acoes-previa">
+          <a href="#alerta-sucesso">Visualizar sucesso</a>
+          <a href="#alerta-erro">Visualizar erro</a>
+          <a href="#modal-confirmacao">Abrir modal</a>
+          <a href="#toast-confirmacao">Mostrar toast</a>
+        </div>
+      </section>
+      <section aria-labelledby="titulo-alertas">
+        <h2 id="titulo-alertas">Alertas contextuais</h2>
+        <p>
+          Selecione uma opção acima para visualizar a mensagem de sucesso ou
+          erro.
+        </p>
+        <div id="alerta-sucesso" class="alerta alerta-sucesso" role="status">
+          <strong>Cadastro realizado com sucesso!</strong>
+          <p>Obrigado por se juntar ao Instituto Conecta.</p>
+          <small>Prévia visual — nenhum dado foi enviado.</small>
+        </div>
+        <div id="alerta-erro" class="alerta alerta-erro" role="alert">
+          <strong>Verifique os campos obrigatórios.</strong>
+          <p>Preencha as informações solicitadas antes de continuar.</p>
+          <small>Prévia visual do estado de erro.</small>
+        </div>
+      </section>
+    </main>
+    <div id="modal-confirmacao" class="modal">
+      <div
+        class="modal-conteudo"
+        role="dialog"
+        aria-labelledby="titulo-modal"
+        aria-describedby="descricao-modal"
+      >
+        <span class="badge badge-educacao">Voluntariado</span>
+        <h2 id="titulo-modal">Obrigado por participar!</h2>
+        <p id="descricao-modal">
+          Sua participação faz a diferença nos projetos do Instituto Conecta.
+        </p>
+        <p class="nota-previa">
+          Demonstração visual — nenhum cadastro foi enviado.
+        </p>
+        <a class="botao-feedback" href="#demonstracao">Fechar</a>
+      </div>
+    </div>
+    <div id="toast-confirmacao" class="toast" role="status">
+      <strong>Obrigado por apoiar o Instituto Conecta!</strong>
+      <p>Juntos, transformamos comunidades.</p>
+      <a href="#demonstracao" aria-label="Fechar notificação">Fechar</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Instituto Conecta. Todos os direitos reservados.</p>
+      <a class="link-componentes" href="componentes.html"
+        >Demonstração de componentes</a
+      >
+    </footer>
+  </body>
+</html>
