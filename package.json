@@ -1,0 +1,16 @@
+{
+  "name": "instituto-conecta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/postbuild.mjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "latest",
+    "sharp": "latest",
+    "vite": "latest"
+  }
+}
