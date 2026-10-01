@@ -1,0 +1,44 @@
+name: Build e otimização
+
+on:
+  push:
+    branches:
+      - feature/minificacao
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Gerar build de produção
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Gerar build otimizada
+        run: npm run build
+
+      - name: Exibir relatório
+        run: cat dist/build-report.txt
+
+      - name: Enviar build como artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: instituto-conecta-dist
+          path: dist/
+          retention-days: 30
